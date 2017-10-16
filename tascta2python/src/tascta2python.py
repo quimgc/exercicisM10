@@ -98,6 +98,15 @@ print(aproximaPi(fraccions))
 
 #Exercici 4
 
+def esApocaliptic(n):
+    if "666" in str(n):
+        return True
+    return False
+    
+n = 14666
+print("El numero " + str(n) + " es Apocaliptic: " , esApocaliptic(n))
+n = 1466
+print("El numero " + str(n) + " es Apocaliptic: " , esApocaliptic(n))
 #Exercici 5
 
 def esApilable(n):
@@ -136,26 +145,40 @@ print("El numero " + str(n) + " amb el metode esApilable: " + str(esApilable(n))
 #Exercici 7
 
 def factorial(n):
-	resultatFactorial = 0
-	while(n>=1):
-		resultatFactorial = n * n-1
-		n-=1
-	return resultatFactorial
+    numFactorial = 1
+    while n >= 1:
+        numFactorial = numFactorial * n
+        n = n - 1
+    return numFactorial
+
 
 
 def combinatori(m,n):
-	return factorial(m+n-1)/factorial(n)*factorial(m-1)
+	return factorial(m+n-1)/factorial(n)*(factorial(m-1))
     
     
-print(combinatori(2,10))
+print("esCombinatori", combinatori(10,2))
 
 #Exercici 8
 import random
 def aleatori(n):
     return random.randint(0,n-1)
 
+def llansamentDauMoneda():
+    contDau = 0
+    contMoneda = 0
+    n = 0
+    while(n<=99):
+        if(aleatori(6)%2!=0):
+            contDau+=1
+        if(aleatori(2)%2!=0):
+            contMoneda+=1
+        n+=1
+    
+    return "Dau: " + str(contDau) + "\n Moneda: " + str(contMoneda)
 
-print(aleatori(20))
+
+print(llansamentDauMoneda())
 
 
 #exercici 9
