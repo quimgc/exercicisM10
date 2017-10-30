@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="examenM3">
+  <ClassDiagramComponents>
+    <Class name="Treballador" package="" visibility="public" xPosition="441.0" yPosition="217.0">
+      <Fields>
+        <Field name="NIF" type="long" visibility="private"/>
+        <Field name="nom" type="String" visibility="private"/>
+        <Field name="telefon" type="long" visibility="private"/>
+        <Field name="codiPostal" type="int" visibility="private"/>
+        <Field name="capEmpleat" type="Treballador" visibility="private"/>
+        <Field name="isCap" type="boolean" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="Treballador" returnType="int" visibility="public">
+          <Argument type="long" name="NIF"/>
+          <Argument type="String" name="nom"/>
+          <Argument type="long" name="tel"/>
+          <Argument type="int" name="cp"/>
+        </Method>
+        <Method name="Treballador" returnType="Treballador" visibility="public">
+          <Argument type="long" name="NIF"/>
+          <Argument type="String" name="nom"/>
+          <Argument type="long" name="tel"/>
+          <Argument type="int" name="cp"/>
+          <Argument type="Treballador" name="cap"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Empresa" package="" visibility="public" xPosition="30.0" yPosition="29.0">
+      <Fields>
+        <Field name="CIF" type="long" visibility="private"/>
+        <Field name="raoSocial" type="String" visibility="private"/>
+        <Field name="telefon" type="long" visibility="private"/>
+        <Field name="codiPostal" type="int" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="Empresa" returnType="void" visibility="public"/>
+        <Method name="Empresa" returnType="int" visibility="public">
+          <Argument type="long" name="CIF"/>
+          <Argument type="String" name="raoSocial"/>
+          <Argument type="long" name="tel"/>
+          <Argument type="int" name="cp"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Director" package="" visibility="public" xPosition="30.0" yPosition="284.0">
+      <Fields>
+        <Field name="isDirector" type="Object" visibility="private"/>
+        <Field name="Director" type="Treballador" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="assignarDirector" returnType="Treballador" visibility="public">
+          <Argument type="Treballador" name="t"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Tasca" package="" visibility="public" xPosition="1004.0" yPosition="49.0">
+      <Fields>
+        <Field name="codi" type="int" visibility="private"/>
+        <Field name="inici" type="Date" visibility="private"/>
+        <Field name="finalitzacio" type="Date" visibility="private"/>
+        <Field name="responsable" type="Treballador" visibility="private"/>
+        <Field name="estat" type="Status" visibility="private"/>
+        <Field name="idExpedient" type="int" visibility="private"/>
+        <Field name="tascaFabricacio" type="String" visibility="private"/>
+        <Field name="codiProducte" type="int" visibility="private"/>
+        <Field name="codiTaller" type="int" visibility="private"/>
+        <Field name="codiMagatzem" type="int" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="crearTasca" returnType="void" visibility="public"/>
+        <Method name="finalitzarTasca" returnType="void" visibility="public">
+          <Argument type="Status" name="stat"/>
+          <Argument type="Date" name="finalitzacio"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="CapDepartament" package="" visibility="public" xPosition="167.0" yPosition="465.0">
+      <Fields>
+        <Field name="cap" type="Treballador" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="assignarCapDepartament" returnType="Treballador" visibility="public">
+          <Argument type="Treballador" name="t"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Enum name="Status" package="" visibility="public" xPosition="714.0" yPosition="488.0">
+      <Literals>
+        <Literal name="pendentAssignar"/>
+        <Literal name="enMarxa"/>
+        <Literal name="finalitzada"/>
+      </Literals>
+    </Enum>
+    <Interface name="mostrar" package="" visibility="public" xPosition="582.0" yPosition="29.0">
+      <Methods>
+        <Method name="mostrar" returnType="String" visibility="public"/>
+      </Methods>
+    </Interface>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="CapDepartament" target="Treballador"/>
+    <HasRelation name="1treballador1Empresa" source="Empresa" target="Treballador" type="Composition" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="Empresa" target="mostrar"/>
+    <HasRelation name="1.1" source="Tasca" target="Treballador" type="Composition" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <UseRelation name="estatTasca" source="Tasca" target="Status" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="Treballador" target="mostrar"/>
+    <HasRelation name="1empresa1director" source="Empresa" target="Director" type="Composition" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="Director" target="mostrar"/>
+    <IsRelation name="is" source="Director" target="Treballador"/>
+    <HasRelation name="1capD1Director" source="CapDepartament" target="Director" type="Composition" sourceCardinality="0..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

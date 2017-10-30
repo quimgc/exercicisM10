@@ -84,7 +84,8 @@ def aproximaPi(fraccions):
         fraccions -=1
         
     return pi
-    
+
+print("aproximaPi", aproximaPi(700))
 
 while(True):
     try:
