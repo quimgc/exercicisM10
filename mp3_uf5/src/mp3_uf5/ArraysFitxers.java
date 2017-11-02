@@ -18,10 +18,10 @@ import java.util.Scanner;
 public class ArraysFitxers {
     
     public static void main(String[] args) throws FileNotFoundException{
-     /*   
+        
     Integer[] arr = new Integer[6];
     //or
-    Integer[] arr2 = {31,2,33,45,5,26};
+    Integer[] arr2 = {12,2,33,45,5,26};
 
         for (int i = 0; i < arr2.length; i++) {
             System.out.print(arr2[i]+ " ");
@@ -39,7 +39,7 @@ public class ArraysFitxers {
         }
         
         System.out.println("");
-        Arrays.fill(arr2, 7);
+        Arrays.fill(arr2, 5);
 
         //amb això es converteix un array amb un iterador (per convertir amb una llista)
         Iterator it = Arrays.asList(arr2).iterator();
@@ -60,16 +60,14 @@ public class ArraysFitxers {
         //amb això es converteix un array amb un iterador (per convertir amb una llista)
         Iterator it2 = Arrays.asList(arr2).iterator();
         
-        //it.hasNext() retorna = mentres hi hagi un següent element...
-        
-        
+        //it.hasNext() retorna = mentres hi hagi un següent element...     
         while(it2.hasNext()){
             System.out.print(it2.next()+ " ");
         }
         
         System.out.println("");
         
-        */
+         
         
         Scanner in = new Scanner(new FileReader("text.txt"));
         

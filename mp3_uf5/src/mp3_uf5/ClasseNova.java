@@ -13,7 +13,7 @@ public class ClasseNova {
 
     @Override
     public String toString() {
-        return "ClaseNova";
+        return "ClasseNova";
     }
     
     
