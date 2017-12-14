@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="340.0" prefWidth="351.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="usuarisjavi.FXMLDocumentController">
+  <children>
+    <Button fx:id="button" layoutX="94.0" layoutY="305.0" onAction="#mostrar" text="Crear usuari" />
+    <Label fx:id="label" layoutX="126.0" layoutY="120.0" minHeight="16.0" minWidth="69.0" />
+    <Label layoutX="124.0" layoutY="14.0" prefWidth="43.0" text="Usuari" textAlignment="RIGHT" />
+    <Label id="idUsuari" layoutX="20.0" layoutY="43.0" text="Codi usuari" />
+    <Label id="nom" layoutX="20.0" layoutY="72.0" text="Nom usuari" />
+    <Label id="firstCog" layoutX="18.0" layoutY="104.0" text="Primer cognom" />
+    <Label id="secondCog" layoutX="20.0" layoutY="128.0" text="Segon cognom" />
+    <Label id="direccio" layoutX="19.0" layoutY="154.0" text="Direccio" />
+    <Label id="cp" layoutX="20.0" layoutY="177.0" text="Codi Popstal" />
+    <Label id="mail" layoutX="18.0" layoutY="205.0" text="Email" />
+    <Label id="tel" layoutX="19.0" layoutY="232.0" text="Telefon" />
+    <TextField fx:id="idUsuari" layoutX="95.0" layoutY="40.0" prefWidth="200.0" />
+    <TextField fx:id="nom" layoutX="101.0" layoutY="69.0" prefWidth="200.0" />
+    <TextField fx:id="firstCog" layoutX="126.0" layoutY="98.0" prefWidth="200.0" />
+    <TextField fx:id="secondCog" layoutX="126.0" layoutY="125.0" prefWidth="200.0" />
+    <TextField fx:id="direccio" layoutX="94.0" layoutY="151.0" prefWidth="200.0" />
+    <TextField fx:id="cp" layoutX="118.0" layoutY="174.0" prefWidth="200.0" />
+    <TextField fx:id="mail" layoutX="76.0" layoutY="202.0" prefWidth="200.0" />
+    <TextField fx:id="tel" layoutX="76.0" layoutY="229.0" prefWidth="200.0" />
+  </children>
+</AnchorPane>

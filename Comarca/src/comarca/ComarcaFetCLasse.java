@@ -13,7 +13,7 @@ import java.util.Scanner;
  *
  * @author quim
  */
-public class ComarcaFetClasse  {
+public class ComarcaFetCLasse  {
     private int codiComarca;
     private String nom;
     
@@ -21,7 +21,7 @@ public class ComarcaFetClasse  {
     private double superficie;
     private int habitants;    
 
-    public ComarcaFetClasse(int codiComarca, String nom) {
+    public ComarcaFetCLasse(int codiComarca, String nom) {
         this.codiComarca = codiComarca;
         this.nom = nom;
     }

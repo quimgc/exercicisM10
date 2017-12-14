@@ -12,8 +12,8 @@ public class ConnectPostgres {
     public static void main(String[] args) {
 
         String url = "jdbc:postgresql://localhost:5432/videoteca";
-        String usuari = "admin_db";
-        String contra = "admin_db";
+        String usuari = "client_db";
+        String contra = "client_db";
         
         try{
             Class.forName("org.postgresql.Driver");

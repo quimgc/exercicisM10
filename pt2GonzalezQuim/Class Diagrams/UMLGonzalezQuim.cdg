@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="UMLGonzalezQuim">
+  <ClassDiagramComponents>
+    <Class name="ClasseMare" package="" visibility="public" xPosition="922.0" yPosition="46.0">
+      <Fields>
+        <Field name="Atribut" type="int" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="aixoEsUnMetode" returnType="void" visibility="public"/>
+        <Method name="aixoRetornaString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations/>
+</ClassDiagram>

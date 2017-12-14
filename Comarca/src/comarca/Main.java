@@ -8,8 +8,10 @@ package comarca;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.text.Collator;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -21,7 +23,7 @@ public class Main {
 
     public static void main(String[] args) throws FileNotFoundException {
         Scanner in = new Scanner(new FileReader("Comarques.txt"));
-        ComarcaFetClasse[] comarques = new ComarcaFetClasse[0];
+        Comarca[] comarques = new Comarca[0];
 
         while (in.hasNext()) {
             //llegim el numero
@@ -30,7 +32,7 @@ public class Main {
             String nom = in.nextLine();
 
             //creo una comarca amb el constructor de la classe. 
-            ComarcaFetClasse c = new ComarcaFetClasse(codiComarca, nom);
+            Comarca c = new Comarca(codiComarca, nom);
 
             //miro si el codi és més petit que la longitud, si és aixi el guardo
             if (codiComarca < comarques.length) {
@@ -44,14 +46,19 @@ public class Main {
             }
 
         }
-//        for (ComarcaFetClasse c : comarques) {
+       
+        
+        
+        
+        
+//        for (ComarcaFetCLasse c : comarques) {
 //            System.out.println(c);
 //        }
 
-        class ComparadorInvers implements Comparator<ComarcaFetClasse> {
+        class ComparadorInvers implements Comparator<Comarca> {
 
             @Override
-            public int compare(ComarcaFetClasse o1, ComarcaFetClasse o2) {
+            public int compare(Comarca o1, Comarca o2) {
                 if (o1 != null && o2 != null) {
                     String o1Invers = new StringBuilder(o1.getNom()).reverse().toString();
                     String o2Invers = new StringBuilder(o2.getNom()).reverse().toString();
@@ -69,8 +76,37 @@ public class Main {
         
         Arrays.sort(comarques, new ComparadorInvers());
         
-            for (ComarcaFetClasse c : comarques){
+            for (Comarca c : comarques){
                 System.out.println(c);
             }
+            
+            
+            
+        //Municipis
+        
+        //List municipis = new ArrayList();
+        
+        Scanner mun = new Scanner(new FileReader("Municipis.txt"));
+        Pais p = new Pais();
+        
+        while (mun.hasNext()) {
+            //llegim el numero
+            int codiComarca = Integer.parseInt(mun.nextLine());
+            int codiMunicipi = Integer.parseInt(mun.nextLine());
+            //llegim el nom de la següent linia
+            String nom = mun.nextLine();
+            int numHab = Integer.parseInt(mun.nextLine());
+            double superficie = Double.parseDouble(mun.nextLine());
+        
+            Municipi m = new Municipi(codiComarca, codiMunicipi, nom, numHab, superficie);
+            
+            //actualitzo la poblacio i superficie del pais
+            p.afegirMunicipi(m);
+            
+            //municipis.add(m);
+        }            
+            
+            
+            
     }
 }

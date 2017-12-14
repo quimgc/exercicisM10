@@ -137,19 +137,101 @@ def llistaPrimers(llista):
     return listPrimers
         
 llista = [1,2,3,4,5,6,7,'a',9,10,11]        
-print(llistaPrimers(llista))
-llista = [1,2,3,4,5,6,7,8,9,10,11]        
-print(llistaPrimers(llista))
+#print(llistaPrimers(llista))
+llista = [4,2,1,3]        
+#print(llistaPrimers(llista))
 
 #Exercici 8
 
 def llistaK(llista, k):
-    if(list(llista)==False or llista==null or k==null or int(k)==False):
+    if(list(llista)==False or llista=='' or k=='' or int(k)==False):
         return None
     
     menorK = []
     igualK = []
     majorK = []
     for valor in llista:
+        if(valor<k):
+            menorK.append(valor)
         
+        elif (valor>k):
+            majorK.append(valor)
+        else:
+            igualK.append(valor)
     
+    llistaResultat = ['MENORS: ', menorK, 'IGUAL A K: ', igualK, 'MAJOR A K: ', majorK]
+    return llistaResultat
+
+
+#print(llistaK(llista,6))
+#print(llistaK('',6))
+#print(llistaK(llista,''))
+
+#Exercici 9
+
+def llistaInvertida(llista):
+    
+    if(llista=='' or list(llista) == False):
+        
+        return None
+    
+    index = len(llista)
+    llistaReves = []
+    while(index>0):
+        index = index -1
+        llistaReves.append(llista[index])
+         
+    
+    return llistaReves
+
+a = ['Digues', 'bon','dia','a','papa']
+#print(llistaInvertida(a))
+
+
+#Exercici 10
+#import sys
+#def invertirMateixaLlista(llista):
+#    
+#    if(llista=='' or list(llista) == False):
+#        
+#        return None
+#    
+#    valorTemp = sys.maxsize
+#    
+#    for valor in llista:
+#        for valor2 in range(llista.index(valor)+1,len(llista)):
+#            if(valor>valor2):
+#                if(valor2<valorTemp):
+#                    valorTemp = valor2
+#        llista.append(valor)
+#        llista[llista.index(valor)]=valorTemp
+#    return llista
+#
+#print(invertirMateixaLlista(llista))
+
+def invertirMateixaLlista(a):
+    if(llista=='' or list(llista) == False):
+        
+        return None
+    
+    index = len(a)
+    
+    while(index>0):
+        index=index-1
+        a.append(a[index])
+        a.remove(a[index])
+    return a
+
+#print(invertirMateixaLlista(a))
+
+
+#Afegiu l'exercici 12, on heu d'investigar i EXPLICAR què fan els següents mètodes de les llistes, i mostrar exemples del seu ús: 
+
+#append   clear    copy     count    extend    index   insert   pop   remove   reverse   sort
+
+a=[4,1,5,2,0,3]
+print(a)
+a.sort()
+print(a)
+
+
