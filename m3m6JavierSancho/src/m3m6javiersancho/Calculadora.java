@@ -68,6 +68,7 @@ public class Calculadora {
                                 if (!op) {
                                     num1 = Double.parseDouble(jb.getText());
                                     op = true;
+                                    punt = false;
                                 }
                                 jb.setText("0");
                                 break;
@@ -76,6 +77,7 @@ public class Calculadora {
                                 if (!op) {
                                     num1 = Double.parseDouble(jb.getText());
                                     op = true;
+                                    punt = false;
                                 }
                                 jb.setText("0");
 
@@ -87,6 +89,7 @@ public class Calculadora {
                                 if (!op) {
                                     num1 = Double.parseDouble(jb.getText());
                                     op = true;
+                                    punt = false;
                                 }
                                 jb.setText("0");
 
@@ -97,6 +100,7 @@ public class Calculadora {
                                 if (!op) {
                                     num1 = Double.parseDouble(jb.getText());
                                     op = true;
+                                    punt = false;
                                 }
                                 jb.setText("0");
 
