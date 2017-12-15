@@ -34,12 +34,65 @@ public class Calculadora {
         JButton[][] botons = new JButton[4][4];
         int cont = 0;
         JLabel jb = new JLabel("0", SwingConstants.RIGHT);
+        JLabel firstNum = new JLabel("0", SwingConstants.CENTER);
+        JLabel TextNum1 = new JLabel("Num1", SwingConstants.CENTER);
+        JLabel secondNum = new JLabel("0", SwingConstants.CENTER);
+        JLabel TextNum2 = new JLabel("Num2", SwingConstants.CENTER);
+        JLabel operador = new JLabel("signe");
+        JLabel signeOperand = new JLabel("", SwingConstants.CENTER);
+        
         jb.setBounds(0, 0, 200, 50);
         jb.setOpaque(true);
         jb.setBackground(Color.GREEN);
         jb.setForeground(Color.black);
+        jb.setBorder(BorderFactory.createLineBorder(Color.black));
+
         calc.add(jb);
 
+        firstNum.setOpaque(true);
+        firstNum.setBounds(300, 50, 20, 20);
+        firstNum.setBackground(Color.LIGHT_GRAY);
+        firstNum.setBorder(BorderFactory.createLineBorder(Color.black));
+
+        calc.add(firstNum);
+        
+        secondNum.setOpaque(true);
+        secondNum.setBounds(300, 100, 20, 20);
+        secondNum.setBackground(Color.LIGHT_GRAY);
+        secondNum.setBorder(BorderFactory.createLineBorder(Color.black));
+
+        calc.add(secondNum);
+        
+        TextNum1.setOpaque(true);
+        TextNum1.setBounds(230, 50, 50, 20);
+        TextNum1.setBackground(Color.LIGHT_GRAY);
+        TextNum1.setBorder(BorderFactory.createLineBorder(Color.black));
+
+        calc.add(TextNum1);
+
+
+        operador.setOpaque(true);
+        operador.setBounds(230, 75, 50, 20);
+        operador.setBackground(Color.LIGHT_GRAY);
+        operador.setBorder(BorderFactory.createLineBorder(Color.black));
+
+        calc.add(operador);
+
+        
+        signeOperand.setOpaque(true);
+        signeOperand.setBounds(300, 75, 20, 20);
+        signeOperand.setBackground(Color.LIGHT_GRAY);
+        signeOperand.setBorder(BorderFactory.createLineBorder(Color.black));
+
+        calc.add(signeOperand);
+
+        TextNum2.setOpaque(true);
+        TextNum2.setBounds(230, 100, 50, 20);
+        TextNum2.setBackground(Color.LIGHT_GRAY);
+        TextNum2.setBorder(BorderFactory.createLineBorder(Color.black));
+
+        calc.add(TextNum2);
+        
         for (int i = 0; i < botons.length; i++) {
             for (int j = 0; j < botons[i].length; j++) {
                 botons[i][j] = new JButton(chars[i + j * 4]);
@@ -64,9 +117,10 @@ public class Calculadora {
 
                             case "+":
                                 operand = '+';
-
+                                signeOperand.setText(""+operand);
                                 if (!op) {
                                     num1 = Double.parseDouble(jb.getText());
+                                    firstNum.setText(jb.getText());
                                     op = true;
                                     punt = false;
                                 }
@@ -74,8 +128,11 @@ public class Calculadora {
                                 break;
                             case "-":
                                 operand = '-';
-                                if (!op) {
+                                signeOperand.setText(""+operand);
+                               if (!op) {
                                     num1 = Double.parseDouble(jb.getText());
+                                    firstNum.setText(jb.getText());
+
                                     op = true;
                                     punt = false;
                                 }
@@ -84,10 +141,12 @@ public class Calculadora {
                                 break;
 
                             case "x":
-
                                 operand = 'x';
+                                signeOperand.setText(""+operand);
                                 if (!op) {
                                     num1 = Double.parseDouble(jb.getText());
+                                    firstNum.setText(jb.getText());
+
                                     op = true;
                                     punt = false;
                                 }
@@ -97,8 +156,12 @@ public class Calculadora {
 
                             case "/":
                                 operand = '/';
+                                signeOperand.setText(""+operand);
+
                                 if (!op) {
                                     num1 = Double.parseDouble(jb.getText());
+                                    firstNum.setText(jb.getText());
+
                                     op = true;
                                     punt = false;
                                 }
@@ -108,7 +171,10 @@ public class Calculadora {
 
                             case "=":
                                 num2 = Double.parseDouble(jb.getText());
+                                secondNum.setText(jb.getText());
                                 op = false;
+                                signeOperand.setText("=");
+
 
                                 switch (operand) {
                                     case '+':
@@ -147,7 +213,6 @@ public class Calculadora {
         calc.setSize(1000, 1000);
         calc.setLayout(null);
         calc.setVisible(true);
-        jb.setBorder(BorderFactory.createLineBorder(Color.black));
         calc.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
     }
