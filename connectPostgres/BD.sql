@@ -1,18 +1,8 @@
-drop table productes cascade;
+drop table preus cascade;
+drop table guany cascade;
 drop table proveidors cascade;
-drop table preus;
-drop table guany;
-
-CREATE TABLE productes (
-part varchar(20),
-tipus varchar(20),
-especificacio varchar(20),
-psuggerit float(6),
-clau serial,
-PRIMARY KEY(clau)
-);
-
-INSERT INTO productes (part,tipus,especificacio,psuggerit) VALUES ('Processador','2 GHz','32 bits',NULL);
+drop table productes cascade;
+CREATE TABLE productes (part varchar(20),tipus varchar(20),especificacio varchar(20),psuggerit float(6),clau serial,PRIMARY KEY(clau));
 INSERT INTO productes (part,tipus,especificacio,psuggerit) VALUES ('Processador','2.4 GHz','32 bits',35);
 INSERT INTO productes (part,tipus,especificacio,psuggerit) VALUES ('Processador','1.7 GHz','64 bits',205);
 INSERT INTO productes (part,tipus,especificacio,psuggerit) VALUES ('Processador','3 GHz','64 bits',560);
@@ -24,36 +14,14 @@ INSERT INTO productes (part,tipus,especificacio,psuggerit) VALUES ('Disc Dur','2
 INSERT INTO productes (part,tipus,especificacio,psuggerit) VALUES ('Disc Dur','40 GB','4200 rpm',NULL);
 INSERT INTO productes (part,tipus,especificacio,psuggerit) VALUES ('Monitor','1024x876','75 Hz',80);
 INSERT INTO productes (part,tipus,especificacio,psuggerit) VALUES ('Monitor','1024x876','60 Hz',67);
- 
-CREATE TABLE proveidors (
-empresa varchar(20) NOT NULL,
-credit bool,
-efectiu bool,
-PRIMARY KEY(empresa)
-);
- 
+CREATE TABLE proveidors ( empresa varchar(20) NOT NULL, credit bool, efectiu bool, PRIMARY KEY(empresa));
 INSERT INTO proveidors (empresa,efectiu) VALUES ('Descomponte PC', true );
 INSERT INTO proveidors (empresa,credit) VALUES ('INS Ebre Tech', true );
 INSERT INTO proveidors (empresa,credit,efectiu) VALUES ('Armazon', true, true );
- 
-CREATE TABLE guany(
-venda varchar(16),
-factor decimal (4,2),
-PRIMARY KEY (venda)
-);
- 
+CREATE TABLE guany( venda varchar(16), factor decimal (4,2), PRIMARY KEY (venda));
 INSERT INTO guany VALUES('engros',1.05);
 INSERT INTO guany VALUES('detall',1.12);
- 
-CREATE TABLE preus (
-empresa varchar(20) NOT NULL,
-clau int NOT NULL,
-preu float(6),
-PRIMARY KEY (empresa, clau),
-FOREIGN KEY (empresa) REFERENCES proveidors,
-FOREIGN KEY (clau)REFERENCES productes
-);
- 
+CREATE TABLE preus (empresa varchar(20) NOT NULL, clau int NOT NULL, preu float(6), PRIMARY KEY (empresa, clau), FOREIGN KEY (empresa) REFERENCES proveidors(empresa), FOREIGN KEY (clau) REFERENCES productes(clau));
 INSERT INTO preus VALUES ('Armazon',001,30.82);
 INSERT INTO preus VALUES ('Armazon',002,32.73);
 INSERT INTO preus VALUES ('Armazon',003,202.25);
@@ -73,4 +41,5 @@ INSERT INTO preus VALUES ('Descomponte PC',005,9.27);
 INSERT INTO preus VALUES ('Descomponte PC',006,34.85);
 INSERT INTO preus VALUES ('Descomponte PC',007,59.95);
 INSERT INTO preus VALUES ('Descomponte PC',010,61.22);
-INSERT INTO preus VALUES ('Descomponte PC',012,62.29);
+INSERT INTO preus VALUES ('Descomponte PC',011,62.29);
+

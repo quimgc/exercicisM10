@@ -170,32 +170,41 @@ public class GestorDB {
 
         }
     }
-
-    public static void importarFitxer() throws FileNotFoundException{
+/**
+ *
+ * @param c
+ * @throws FileNotFoundException
+ * @throws SQLException 
+ */
+    public static void importarFitxer(Connection c) throws FileNotFoundException, SQLException{
         Scanner sql = new Scanner(new FileReader("BD.sql"));
 
         try {
+            java.sql.Statement st = c.createStatement();
+
             while (sql.hasNext()) {
-                 System.out.println(sql.nextLine());
+                
+                st.executeUpdate(sql.nextLine());
+            
             }
         } catch (Exception ex) {
 
             System.out.println("Error: " + ex.getMessage());
 
-        }
+            }
 
     }
 
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) throws FileNotFoundException, SQLException {
 
-        //Connection c=connectaDB();
+       Connection c=connectaDB();
         //afegirTaula(c);
         //AddAlbum(c);
         //selectAlbums(c);
         //deleteAlbums(c);
         //crearTaulaUsers(c);
         //deleteUserById(c);
-        importarFitxer();
+        importarFitxer(c);
         // tancaDB(c);
 
     }
