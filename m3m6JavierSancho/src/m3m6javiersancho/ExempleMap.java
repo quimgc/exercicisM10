@@ -20,12 +20,12 @@ public class ExempleMap {
         Amb HashMap, les dades surten de la mateixa forma que s'insereixen.
         */
         //Map<Integer, String> map = new HashMap<Integer, String>();
-       //Map<Integer, String> map = new TreeMap<Integer, String>();
+//       Map<Integer, String> map = new TreeMap<Integer, String>();
         Map<Integer, String> map = new LinkedHashMap<Integer, String>();
 
 
         //add elements
-        map.put(13, "bravo");
+        map.put(13, "Bravo");
         map.put(18, "Jordi Alba");
         map.put(24, "Mathieu");
         map.put(15, "Bartra");

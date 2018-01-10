@@ -22,6 +22,14 @@ public class Soci {
         this.nom = nom;
     }
 
+    public void setCodi(int codi) {
+        this.codi = codi;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
     
     
     public int getCodi() {

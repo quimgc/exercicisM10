@@ -23,7 +23,7 @@ import javax.swing.*;
  *
  * @author quimgonzalez
  */
-public class Formulari extends JFrame implements ActionListener{
+public class SociFormulariMillorat extends JFrame implements ActionListener{
     JTextField tcodi = new JTextField();
     JTextField tnom = new JTextField();
     static final String RUTA =  "C:\\Users\\diqgonzalez\\Documents\\NetBeansProjects\\Prova2\\socis.txt";
@@ -33,7 +33,7 @@ public class Formulari extends JFrame implements ActionListener{
     
     ArrayList<Soci> llistaSocis = new ArrayList();
     
-    public Formulari(){
+    public SociFormulariMillorat(){
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         
         JPanel p1 = new JPanel();
@@ -244,7 +244,7 @@ public class Formulari extends JFrame implements ActionListener{
     
     public static void main(String[] args) {
 
-      Formulari sf = new Formulari();
+      SociFormulariMillorat sf = new SociFormulariMillorat();
       sf.setVisible(true);
 
     }
