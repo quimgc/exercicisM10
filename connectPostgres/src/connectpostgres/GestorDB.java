@@ -170,6 +170,32 @@ public class GestorDB {
 
         }
     }
+    
+    public static void afegirUsuariTaulaUsuaris(Connection c) {
+        try {
+            java.sql.Statement st = c.createStatement();
+            String nom = JOptionPane.showInputDialog("Nom:");
+            String cognom = JOptionPane.showInputDialog("Cognom:");
+            String aniversari = JOptionPane.showInputDialog("Aniversari:");
+            String carrer = JOptionPane.showInputDialog("Carrer:");
+            String numero = JOptionPane.showInputDialog("Numero:");
+            String pis = JOptionPane.showInputDialog("Pis:");
+            String poblacio = JOptionPane.showInputDialog("Poblacio:");
+            String provincia = JOptionPane.showInputDialog("Provincia:");
+            
+            
+            String sql = "INSERT INTO usuaris (nom, cognom, aniversari, adreca) VALUES ('" + nom + "', "
+                    + "'" + cognom + "', '" + aniversari + "', ROW('" + carrer + "', '" + numero + "', '" 
+                    + pis + "', '" + poblacio + "', '" + provincia + "'))";
+            
+
+            System.out.println(sql);
+            st.executeUpdate(sql);
+
+        } catch(Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
 /**
  *
  * @param c
@@ -204,8 +230,8 @@ public class GestorDB {
         //deleteAlbums(c);
         //crearTaulaUsers(c);
         //deleteUserById(c);
-        importarFitxer(c);
+        //importarFitxer(c);
         // tancaDB(c);
-
+    afegirUsuariTaulaUsuaris(c);
     }
 }
