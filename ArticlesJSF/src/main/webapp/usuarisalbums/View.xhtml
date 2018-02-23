@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="UsuarisalbumsViewDlg" widgetVar="UsuarisalbumsViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewUsuarisalbumsTitle}">
+            <h:form id="UsuarisalbumsViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{usuarisalbumsController.selected != null}">
+                        <h:outputText value="#{bundle.ViewUsuarisalbumsLabel_id}"/>
+                        <h:outputText value="#{usuarisalbumsController.selected.id}" title="#{bundle.ViewUsuarisalbumsTitle_id}"/>
+                        <h:outputText value="#{bundle.ViewUsuarisalbumsLabel_nom}"/>
+                        <h:outputText value="#{usuarisalbumsController.selected.nom}" title="#{bundle.ViewUsuarisalbumsTitle_nom}"/>
+                        <h:outputText value="#{bundle.ViewUsuarisalbumsLabel_password}"/>
+                        <h:outputText value="#{usuarisalbumsController.selected.password}" title="#{bundle.ViewUsuarisalbumsTitle_password}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="UsuarisalbumsViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

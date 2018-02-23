@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ProveidorsCreateDlg" widgetVar="ProveidorsCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateProveidorsTitle}">
+            <h:form id="ProveidorsCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{proveidorsController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateProveidorsLabel_empresa}" for="empresa" />
+                        <p:inputText id="empresa" value="#{proveidorsController.selected.empresa}" title="#{bundle.CreateProveidorsTitle_empresa}" required="true" requiredMessage="#{bundle.CreateProveidorsRequiredMessage_empresa}"/>
+                        <p:outputLabel value="#{bundle.CreateProveidorsLabel_credit}" for="credit" />
+                        <p:selectBooleanCheckbox id="credit" value="#{proveidorsController.selected.credit}" />
+                        <p:outputLabel value="#{bundle.CreateProveidorsLabel_efectiu}" for="efectiu" />
+                        <p:selectBooleanCheckbox id="efectiu" value="#{proveidorsController.selected.efectiu}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{proveidorsController.create}" value="#{bundle.Save}" update="display,:ProveidorsListForm:datalist,:growl" oncomplete="handleSubmit(args,'ProveidorsCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="ProveidorsCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

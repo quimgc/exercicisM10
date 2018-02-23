@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ProductesViewDlg" widgetVar="ProductesViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewProductesTitle}">
+            <h:form id="ProductesViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{productesController.selected != null}">
+                        <h:outputText value="#{bundle.ViewProductesLabel_part}"/>
+                        <h:outputText value="#{productesController.selected.part}" title="#{bundle.ViewProductesTitle_part}"/>
+                        <h:outputText value="#{bundle.ViewProductesLabel_tipus}"/>
+                        <h:outputText value="#{productesController.selected.tipus}" title="#{bundle.ViewProductesTitle_tipus}"/>
+                        <h:outputText value="#{bundle.ViewProductesLabel_especificacio}"/>
+                        <h:outputText value="#{productesController.selected.especificacio}" title="#{bundle.ViewProductesTitle_especificacio}"/>
+                        <h:outputText value="#{bundle.ViewProductesLabel_psuggerit}"/>
+                        <h:outputText value="#{productesController.selected.psuggerit}" title="#{bundle.ViewProductesTitle_psuggerit}"/>
+                        <h:outputText value="#{bundle.ViewProductesLabel_clau}"/>
+                        <h:outputText value="#{productesController.selected.clau}" title="#{bundle.ViewProductesTitle_clau}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="ProductesViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

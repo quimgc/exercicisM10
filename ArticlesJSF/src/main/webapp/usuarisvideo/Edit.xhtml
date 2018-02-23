@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="UsuarisvideoEditDlg" widgetVar="UsuarisvideoEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditUsuarisvideoTitle}">
+            <h:form id="UsuarisvideoEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{usuarisvideoController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditUsuarisvideoLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{usuarisvideoController.selected.id}" title="#{bundle.EditUsuarisvideoTitle_id}" required="true" requiredMessage="#{bundle.EditUsuarisvideoRequiredMessage_id}"/>
+                        <p:outputLabel value="#{bundle.EditUsuarisvideoLabel_nom}" for="nom" />
+                        <p:inputText id="nom" value="#{usuarisvideoController.selected.nom}" title="#{bundle.EditUsuarisvideoTitle_nom}" />
+                        <p:outputLabel value="#{bundle.EditUsuarisvideoLabel_cognoms}" for="cognoms" />
+                        <p:inputText id="cognoms" value="#{usuarisvideoController.selected.cognoms}" title="#{bundle.EditUsuarisvideoTitle_cognoms}" />
+                        <p:outputLabel value="#{bundle.EditUsuarisvideoLabel_telefon}" for="telefon" />
+                        <p:inputText id="telefon" value="#{usuarisvideoController.selected.telefon}" title="#{bundle.EditUsuarisvideoTitle_telefon}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{usuarisvideoController.update}" value="#{bundle.Save}" update="display,:UsuarisvideoListForm:datalist,:growl" oncomplete="handleSubmit(args, 'UsuarisvideoEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="UsuarisvideoEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="UsuarisvideoViewDlg" widgetVar="UsuarisvideoViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewUsuarisvideoTitle}">
+            <h:form id="UsuarisvideoViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{usuarisvideoController.selected != null}">
+                        <h:outputText value="#{bundle.ViewUsuarisvideoLabel_id}"/>
+                        <h:outputText value="#{usuarisvideoController.selected.id}" title="#{bundle.ViewUsuarisvideoTitle_id}"/>
+                        <h:outputText value="#{bundle.ViewUsuarisvideoLabel_nom}"/>
+                        <h:outputText value="#{usuarisvideoController.selected.nom}" title="#{bundle.ViewUsuarisvideoTitle_nom}"/>
+                        <h:outputText value="#{bundle.ViewUsuarisvideoLabel_cognoms}"/>
+                        <h:outputText value="#{usuarisvideoController.selected.cognoms}" title="#{bundle.ViewUsuarisvideoTitle_cognoms}"/>
+                        <h:outputText value="#{bundle.ViewUsuarisvideoLabel_telefon}"/>
+                        <h:outputText value="#{usuarisvideoController.selected.telefon}" title="#{bundle.ViewUsuarisvideoTitle_telefon}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="UsuarisvideoViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

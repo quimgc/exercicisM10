@@ -3,9 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mysql2;
-
-import java.util.Date;
+package llibresdb40;
 
 /**
  *
@@ -13,18 +11,14 @@ import java.util.Date;
  */
 public class Llibre {
     
-    public int codi;
-    public int isbn;
-    public String titol;
-    public Date anyPublicacio;
-    public String editorial;
-    public String llocPublicacio;
-    
-    public Llibre(){
-        
-    }
+    private int codi;
+    private int isbn;
+    private String titol;
+    private int anyPublicacio;
+    private String editorial;
+    private String llocPublicacio;
 
-    public Llibre(int codi, int isbn, String titol, Date anyPublicacio, String editorial, String llocPublicacio) {
+    public Llibre(int codi, int isbn, String titol, int anyPublicacio, String editorial, String llocPublicacio) {
         this.codi = codi;
         this.isbn = isbn;
         this.titol = titol;
@@ -57,11 +51,11 @@ public class Llibre {
         this.titol = titol;
     }
 
-    public Date getAnyPublicacio() {
+    public int getAnyPublicacio() {
         return anyPublicacio;
     }
 
-    public void setAnyPublicacio(Date anyPublicacio) {
+    public void setAnyPublicacio(int anyPublicacio) {
         this.anyPublicacio = anyPublicacio;
     }
 
@@ -80,10 +74,13 @@ public class Llibre {
     public void setLlocPublicacio(String llocPublicacio) {
         this.llocPublicacio = llocPublicacio;
     }
+
+
+    @Override
+    public String toString() {
+        
+        return "Codi: " + this.codi + " ISBN: " + this.isbn + " Titol: " + this.titol + " Any publicació: " + this.anyPublicacio + " Editorial: " + this.editorial + " Lloc Publicació: " + this.llocPublicacio;
+        
+    }
     
-    
- 
-    
-           
-          
 }

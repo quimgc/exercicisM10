@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="GuanyCreateDlg" widgetVar="GuanyCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateGuanyTitle}">
+            <h:form id="GuanyCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{guanyController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateGuanyLabel_venda}" for="venda" />
+                        <p:inputText id="venda" value="#{guanyController.selected.venda}" title="#{bundle.CreateGuanyTitle_venda}" required="true" requiredMessage="#{bundle.CreateGuanyRequiredMessage_venda}"/>
+                        <p:outputLabel value="#{bundle.CreateGuanyLabel_factor}" for="factor" />
+                        <p:inputText id="factor" value="#{guanyController.selected.factor}" title="#{bundle.CreateGuanyTitle_factor}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{guanyController.create}" value="#{bundle.Save}" update="display,:GuanyListForm:datalist,:growl" oncomplete="handleSubmit(args,'GuanyCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="GuanyCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

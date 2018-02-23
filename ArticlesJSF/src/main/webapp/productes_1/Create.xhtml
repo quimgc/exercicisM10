@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="Productes_1CreateDlg" widgetVar="Productes_1CreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateProductes_1Title}">
+            <h:form id="Productes_1CreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{productes_1Controller.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateProductes_1Label_part}" for="part" />
+                        <p:inputText id="part" value="#{productes_1Controller.selected.part}" title="#{bundle.CreateProductes_1Title_part}" />
+                        <p:outputLabel value="#{bundle.CreateProductes_1Label_tipus}" for="tipus" />
+                        <p:inputText id="tipus" value="#{productes_1Controller.selected.tipus}" title="#{bundle.CreateProductes_1Title_tipus}" />
+                        <p:outputLabel value="#{bundle.CreateProductes_1Label_especificacio}" for="especificacio" />
+                        <p:inputText id="especificacio" value="#{productes_1Controller.selected.especificacio}" title="#{bundle.CreateProductes_1Title_especificacio}" />
+                        <p:outputLabel value="#{bundle.CreateProductes_1Label_psuggerit}" for="psuggerit" />
+                        <p:inputText id="psuggerit" value="#{productes_1Controller.selected.psuggerit}" title="#{bundle.CreateProductes_1Title_psuggerit}" />
+                        <p:outputLabel value="#{bundle.CreateProductes_1Label_clau}" for="clau" />
+                        <p:inputText id="clau" value="#{productes_1Controller.selected.clau}" title="#{bundle.CreateProductes_1Title_clau}" required="true" requiredMessage="#{bundle.CreateProductes_1RequiredMessage_clau}"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{productes_1Controller.create}" value="#{bundle.Save}" update="display,:Productes_1ListForm:datalist,:growl" oncomplete="handleSubmit(args,'Productes_1CreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="Productes_1CreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

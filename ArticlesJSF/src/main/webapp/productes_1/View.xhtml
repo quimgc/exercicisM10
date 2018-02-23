@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="Productes_1ViewDlg" widgetVar="Productes_1ViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewProductes_1Title}">
+            <h:form id="Productes_1ViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{productes_1Controller.selected != null}">
+                        <h:outputText value="#{bundle.ViewProductes_1Label_part}"/>
+                        <h:outputText value="#{productes_1Controller.selected.part}" title="#{bundle.ViewProductes_1Title_part}"/>
+                        <h:outputText value="#{bundle.ViewProductes_1Label_tipus}"/>
+                        <h:outputText value="#{productes_1Controller.selected.tipus}" title="#{bundle.ViewProductes_1Title_tipus}"/>
+                        <h:outputText value="#{bundle.ViewProductes_1Label_especificacio}"/>
+                        <h:outputText value="#{productes_1Controller.selected.especificacio}" title="#{bundle.ViewProductes_1Title_especificacio}"/>
+                        <h:outputText value="#{bundle.ViewProductes_1Label_psuggerit}"/>
+                        <h:outputText value="#{productes_1Controller.selected.psuggerit}" title="#{bundle.ViewProductes_1Title_psuggerit}"/>
+                        <h:outputText value="#{bundle.ViewProductes_1Label_clau}"/>
+                        <h:outputText value="#{productes_1Controller.selected.clau}" title="#{bundle.ViewProductes_1Title_clau}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="Productes_1ViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ProductesEditDlg" widgetVar="ProductesEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditProductesTitle}">
+            <h:form id="ProductesEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{productesController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditProductesLabel_part}" for="part" />
+                        <p:inputText id="part" value="#{productesController.selected.part}" title="#{bundle.EditProductesTitle_part}" />
+                        <p:outputLabel value="#{bundle.EditProductesLabel_tipus}" for="tipus" />
+                        <p:inputText id="tipus" value="#{productesController.selected.tipus}" title="#{bundle.EditProductesTitle_tipus}" />
+                        <p:outputLabel value="#{bundle.EditProductesLabel_especificacio}" for="especificacio" />
+                        <p:inputText id="especificacio" value="#{productesController.selected.especificacio}" title="#{bundle.EditProductesTitle_especificacio}" />
+                        <p:outputLabel value="#{bundle.EditProductesLabel_psuggerit}" for="psuggerit" />
+                        <p:inputText id="psuggerit" value="#{productesController.selected.psuggerit}" title="#{bundle.EditProductesTitle_psuggerit}" />
+                        <p:outputLabel value="#{bundle.EditProductesLabel_clau}" for="clau" />
+                        <p:inputText id="clau" value="#{productesController.selected.clau}" title="#{bundle.EditProductesTitle_clau}" required="true" requiredMessage="#{bundle.EditProductesRequiredMessage_clau}"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{productesController.update}" value="#{bundle.Save}" update="display,:ProductesListForm:datalist,:growl" oncomplete="handleSubmit(args, 'ProductesEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="ProductesEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="PreusEditDlg" widgetVar="PreusEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditPreusTitle}">
+            <h:form id="PreusEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{preusController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditPreusLabel_preusPK_empresa}" for="preusPK_empresa" />
+                        <p:inputText id="preusPK_empresa" value="#{preusController.selected.preusPK.empresa}" title="#{bundle.EditPreusTitle_preusPK_empresa}" required="true" requiredMessage="#{bundle.EditPreusRequiredMessage_preusPK_empresa}"/>
+                        <p:outputLabel value="#{bundle.EditPreusLabel_preusPK_clau}" for="preusPK_clau" />
+                        <p:inputText id="preusPK_clau" value="#{preusController.selected.preusPK.clau}" title="#{bundle.EditPreusTitle_preusPK_clau}" required="true" requiredMessage="#{bundle.EditPreusRequiredMessage_preusPK_clau}"/>
+                        <p:outputLabel value="#{bundle.EditPreusLabel_preu}" for="preu" />
+                        <p:inputText id="preu" value="#{preusController.selected.preu}" title="#{bundle.EditPreusTitle_preu}" />
+                        <p:outputLabel value="#{bundle.EditPreusLabel_productes}" for="productes" />
+                        <p:selectOneMenu id="productes" value="#{preusController.selected.productes}" required="true" requiredMessage="#{bundle.EditPreusRequiredMessage_productes}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{productes_1Controller.itemsAvailableSelectOne}"
+                                           var="productesItem"
+                                           itemValue="#{productesItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditPreusLabel_proveidors}" for="proveidors" />
+                        <p:selectOneMenu id="proveidors" value="#{preusController.selected.proveidors}" required="true" requiredMessage="#{bundle.EditPreusRequiredMessage_proveidors}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{proveidorsController.itemsAvailableSelectOne}"
+                                           var="proveidorsItem"
+                                           itemValue="#{proveidorsItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{preusController.update}" value="#{bundle.Save}" update="display,:PreusListForm:datalist,:growl" oncomplete="handleSubmit(args, 'PreusEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="PreusEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
