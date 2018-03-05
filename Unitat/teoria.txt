@@ -1,0 +1,10 @@
+1r calcular percentatges d'unitats a l'exercit.
+
+2n restar la força de l'exercit contrincant:
+	Per restar s'ha de fer:
+		- La força que me fan, dividir-ho entre el num d'unitats iguals del 				meu exercit.
+		Exemple: Em fan 1000 de mal, i tinc 75 artilleros, 125 cavalleria, 175 infanteria, i 125 Arquers. 
+
+	75/ 500 = 15% d'unitats total sobre l'exercit
+	0.15 * 1000 = 150 punts de resistencia que he d'anar restant als artilleros 
+
